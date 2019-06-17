@@ -20,6 +20,7 @@ cd cowboy_lager_example
 ]}.
 ```
 这里使用最新版本的cowboy和lager，下面编译的时候会自动生成rebar.lock文件，rebar.lock文件里面会有具体的版本信息和hash检验值。
+
 也可以在rebar.config指定具体的版本信息：
 
 ``` erlang
@@ -83,12 +84,16 @@ $ rebar3 compile
 ].
 ```
 更多的lager配置信息可以参考[lager](https://github.com/erlang-lager/lager)
+
 所有的配置文件都可以集中到config/sys.config文件中，这个文件就是rebar3 release的配置文件了。
+
 config/vm.args文件是erlang虚拟机的配置信息。
 
 ## cowboy启动
 cowboy的启动文件可以参考[cowboy example](https://github.com/ninenines/cowboy/tree/master/examples)
+
 这里使用[rest_hello_world](https://github.com/ninenines/cowboy/tree/master/examples/rest_hello_world)
+
 添加cowboy和lager到`cowboy_lager_example/apps/cowboy_lager_example/src/cowboy_lager_example.app.src`文件：
 
 ``` erlang
