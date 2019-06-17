@@ -124,6 +124,12 @@ cowboy的启动文件可以参考[cowboy example](https://github.com/ninenines/c
 rebar3 shell
 ```
 
+## 查看cowboy返回例子
+
+``` shell
+curl -i  http://localhost:18080
+```
+
 ## release发布包
 
 ```
