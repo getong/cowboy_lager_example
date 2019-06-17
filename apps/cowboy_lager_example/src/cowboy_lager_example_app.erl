@@ -23,6 +23,7 @@ start(_StartType, _StartArgs) ->
 	{ok, _} = cowboy:start_clear(http, [{port, 18080}], #{
 		env => #{dispatch => Dispatch}
 	}),
+    lager:error("cowboy is already started", []),
     cowboy_lager_example_sup:start_link().
 
 %%--------------------------------------------------------------------
