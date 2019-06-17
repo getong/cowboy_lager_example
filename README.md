@@ -85,7 +85,7 @@ $ rebar3 compile
 ```
 更多的lager配置信息可以参考[lager](https://github.com/erlang-lager/lager)
 
-所有的配置文件都可以集中到config/sys.config文件中，这个文件就是rebar3 release的配置文件了。
+所有的配置文件都可以集中到config/sys.config文件中，这个文件就是rebar3 release类型项目的配置文件了。
 
 config/vm.args文件是erlang虚拟机的配置信息。
 
