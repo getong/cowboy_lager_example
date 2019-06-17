@@ -83,7 +83,50 @@ $ rebar3 compile
 ].
 ```
 更多的lager配置信息可以参考[lager](https://github.com/erlang-lager/lager)
+所有的配置文件都可以集中到config/sys.config文件中，这个文件就是rebar3 release的配置文件了。
+config/vm.args文件是erlang虚拟机的配置信息。
 
-## cowby启动
+## cowboy启动
 cowboy的启动文件可以参考[cowboy example](https://github.com/ninenines/cowboy/tree/master/examples)
 这里使用[rest_hello_world](https://github.com/ninenines/cowboy/tree/master/examples/rest_hello_world)
+添加cowboy和lager到`cowboy_lager_example/apps/cowboy_lager_example/src/cowboy_lager_example.app.src`文件：
+
+``` erlang
+{applications,
+   [kernel,
+    stdlib,
+    lager,
+    cowboy
+   ]},
+```
+在`cowboy_lager_example/apps/cowboy_lager_example/src/cowboy_lager_example_app.erl`文件中添加：
+
+``` erlang
+    Dispatch = cowboy_router:compile([
+		{'_', [
+			{"/", toppage_h, []}
+		]}
+	]),
+	{ok, _} = cowboy:start_clear(http, [{port, 18080}], #{
+		env => #{dispatch => Dispatch}
+	}),
+```
+拷贝cowboy中的`examples/rest_hello_world/src/toppage_h.erl` 到`apps/cowboy_lager_example/src`目录下面
+
+## live启动
+
+``` shell
+rebar3 shell
+```
+
+## release发布包
+
+```
+rebar3 release
+```
+
+## tar 包
+
+``` shell
+rebar3 as prod tar
+```
