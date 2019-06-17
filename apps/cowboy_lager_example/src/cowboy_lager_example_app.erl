@@ -15,6 +15,14 @@
 %%====================================================================
 
 start(_StartType, _StartArgs) ->
+    Dispatch = cowboy_router:compile([
+		{'_', [
+			{"/", toppage_h, []}
+		]}
+	]),
+	{ok, _} = cowboy:start_clear(http, [{port, 18080}], #{
+		env => #{dispatch => Dispatch}
+	}),
     cowboy_lager_example_sup:start_link().
 
 %%--------------------------------------------------------------------
