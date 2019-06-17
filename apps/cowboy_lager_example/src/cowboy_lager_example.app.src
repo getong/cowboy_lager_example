@@ -5,7 +5,9 @@
   {mod, {cowboy_lager_example_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    lager,
+    cowboy
    ]},
   {env,[]},
   {modules, []},
