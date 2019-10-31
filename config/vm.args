@@ -1,6 +1,6 @@
 -sname cowboy_lager_example
 
 -setcookie cowboy_lager_example_cookie
-
++#600
 +K true
 +A30
